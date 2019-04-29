@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+float gross(float wageRate, int hours);
+float net(float gross, float taxRate);
+
+struct employeeRecord{
+  char lastName[40];
+  float wageRate, taxRate, grossPay, netPay;
+  int hours;
+};
+
+int main (){
+  struct employeeRecord person;
+  float localGross, localNet;
+  printf("Enter the last name, wage rate, hours, tax rate: ");
+  //Read into lastName, wageRate, hours, taxRate of the variable: person.
+  gets(person.lastName);
+  scanf("%f %i %f", &person.wageRate, &person.hours, &person.taxRate);
+  localGross = gross(person.wageRate, person.hours);
+  localNet = net(localGross, person.taxRate);
+  //Print the lastName of the variable person, localGross, and localNet
+  printf("Gross pay for %s is %.2f. Net is %.2f\n", person.lastName, localGross, localNet);
+}
+
+float gross(float wageRate, int hours){
+   //Calculate the gross and return it.
+   float i;
+   if (hours <= 40)
+        i = hours*wageRate;
+   else
+      i = (hours - 40)* (wageRate * 1.5)+ 40*wageRate;
+      return i;
+}
+
+float net(float gross, float taxRate){
+  //Calculate the net and return it.
+  float i;
+    i = gross*(1-taxRate);
+    return i;
+}
