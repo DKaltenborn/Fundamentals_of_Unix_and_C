@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    time_t t;
+    int actualNumber, guess, count = 0;
+    srand((unsigned) time(&t));
+    actualNumber = rand()%40+1;	//The user should guess this number
+
+printf("I am thinking of a number between 1 and 40\n");
+printf("Take a guess:\n");
+scanf("%i", &guess);
+
+while (guess != actualNumber)
+{
+  if (guess > actualNumber)
+    {
+      count++;
+      printf("Your guess is too high.\n");
+      printf("Take a guess:\n");
+      scanf("%i", &guess);
+    }
+    if (guess < actualNumber)
+    {
+      count++;
+      printf("Your guess is too low.\n");
+      printf("Take a guess:\n");
+      scanf("%i", &guess);
+      }
+}
+
+if (guess == actualNumber)
+{
+  count++;
+  printf ("You guessed my number in %i guesses!\n", count);
+}
+    return 0;
+}
