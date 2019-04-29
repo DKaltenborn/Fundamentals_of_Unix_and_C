@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+  char letterGrade;
+
+  printf("Enter a letter grade: ");
+  scanf("%c", &letterGrade);
+  switch(letterGrade)
+  {
+    case 'A': printf("Grade Points: 4\n"); break;
+    case 'B': printf("Grade Points: 3\n"); break;
+    case 'C': printf("Grade Points: 2\n"); break;
+    case 'D': printf("Grade Points: 1\n"); break;
+    case 'F': printf("Grade Points: 0\n"); break;
+    default: printf("You must enter one of the letters A, B, C, D, or F.\n");
+  }
+  }
